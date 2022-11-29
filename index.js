@@ -1,6 +1,6 @@
 const acorn = require("acorn");
 const fs = require('fs');
-const { default: MagicString } = require("magic-string");
+const MagicString = require("magic-string");
 
 const code = fs.readFileSync('./source.js', 'utf-8').toString();
 const ms = new MagicString(code)

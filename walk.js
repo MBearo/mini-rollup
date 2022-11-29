@@ -1,4 +1,4 @@
-module.exports = function visit(node, parent, enter, leave) {
+module.exports = function walk(node, parent, enter, leave) {
     if (enter) {
         enter(node, parent);
     }
@@ -10,12 +10,12 @@ module.exports = function visit(node, parent, enter, leave) {
             if (Array.isArray(child)) {
                 for (let j = 0; j < child.length; j += 1) {
                     if (typeof child[j] === "object") {
-                        visit(child[j], node, enter, leave);
+                        walk(child[j], node, enter, leave);
                     }
                 }
             }
             else {
-                visit(child, node, enter, leave);
+                walk(child, node, enter, leave);
             }
         }
     }
